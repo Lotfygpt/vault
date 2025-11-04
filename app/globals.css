@@ -1,9 +1,10 @@
+/* Import des polices luxueuses — doit toujours être placé en tout premier */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400&display=swap');
+
+/* Dépendances Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import de polices luxueuses */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400&display=swap');
 
 /* Style global */
 body {
