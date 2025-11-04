@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import de polices luxueuses */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400&display=swap');
+
+/* Style global */
+body {
+  background-color: #0a0a0a;
+  color: #C8A951;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Désactiver l’outline par défaut */
+input,
+button {
+  outline: none;
+}
+
+/* Lien Telegram */
+a {
+  color: #c9a63b;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #e5c678;
+}
+
+/* Animation dorée subtile pour le titre principal */
+.title-gold {
+  background: linear-gradient(to bottom, #d4af37, #9c7c1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Fade-in global (utilisé par motion) */
+.fade-in {
+  animation: fadeIn 1.2s ease-out both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
