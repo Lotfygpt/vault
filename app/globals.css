@@ -1,12 +1,18 @@
-/* Import des polices luxueuses — doit toujours être placé en tout premier */
+/* -------------------------------------------- */
+/* Import des polices luxueuses — toujours en premier */
+/* -------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400&display=swap');
 
+/* -------------------------------------------- */
 /* Dépendances Tailwind */
+/* -------------------------------------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Style global */
+/* -------------------------------------------- */
+/* Styles globaux */
+/* -------------------------------------------- */
 body {
   background-color: #0a0a0a;
   color: #C8A951;
@@ -14,15 +20,21 @@ body {
   letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Désactiver l’outline par défaut */
+/* -------------------------------------------- */
+/* Désactivation des outlines par défaut */
+/* -------------------------------------------- */
 input,
 button {
   outline: none;
 }
 
-/* Lien Telegram */
+/* -------------------------------------------- */
+/* Liens dorés élégants */
+/* -------------------------------------------- */
 a {
   color: #c9a63b;
   text-decoration: none;
@@ -31,16 +43,22 @@ a {
 
 a:hover {
   color: #e5c678;
+  text-shadow: 0 0 12px rgba(229, 198, 120, 0.5);
 }
 
-/* Animation dorée subtile pour le titre principal */
+/* -------------------------------------------- */
+/* Titre principal avec effet doré */
+/* -------------------------------------------- */
 .title-gold {
   background: linear-gradient(to bottom, #d4af37, #9c7c1b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(200, 169, 81, 0.3);
 }
 
-/* Fade-in global (utilisé par motion) */
+/* -------------------------------------------- */
+/* Animation fade-in globale (motion) */
+/* -------------------------------------------- */
 .fade-in {
   animation: fadeIn 1.2s ease-out both;
 }
@@ -54,4 +72,36 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* -------------------------------------------- */
+/* Halo doré respirant pour le logo */
+/* -------------------------------------------- */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* -------------------------------------------- */
+/* Scrollbar discrète dorée (desktop uniquement) */
+/* -------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c8a951, #7c631d);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
 }

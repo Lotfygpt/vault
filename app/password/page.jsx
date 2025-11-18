@@ -9,7 +9,7 @@ export default function PasswordPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === "LXV2025") {
+    if (password === "Denver@15") {
       window.location.href = "/vault";
     } else {
       setError(true);
