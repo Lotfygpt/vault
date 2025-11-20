@@ -1,148 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-const watches = [
-  {
-    name: "Daytona Ice Blue 116506 ",
-    img: "/montres/Daytona Ice Blue 116506.jpeg",
-    price: "1700 €",
-    available: true,
-  },
-  {
-    name: "Richard Mille RM 67-02",
-    img: "/montres/RM02.jpeg",
-    price: "7600 €",
-    available: true,
-  },
-  {
-    name: "Patek Philippe Nautilus 5711A ",
-    img: "/montres/Patek nautilus.jpg",
-    price: "1750 €",
-    available: true,
-  },
-  {
-    name: "Rolex Submariner 126610LN",
-    img: "/montres/encours.png",
-    price: "990 €",
-    available: false,
-  },
-  {
-    name: "Patek Philippe Nautilus 5711",
-    img: "/montres/encours.png",
-    price: "1400 €",
-    available: false,
-  },
-  {
-    name: "Rolex GMT Batman 126710BLNR",
-    img: "/montres/encours.png",
-    price: "1050 €",
-    available: false,
-  },
+// Catégories
+const brands = [
+  "Rolex",
+  "Patek Philippe",
+  "Richard Mille",
+  "Audemars Piguet",
+  "Cartier",
+  "Omega",
+  "Hublot",
+  "Tudor",
+  "Vacheron Constantin",
+  "IWC",
+  "Panerai",
 ];
 
 export default function Galerie() {
+  const [watches, setWatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/watches.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setWatches(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erreur JSON:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-gold">
+        Chargement...
+      </div>
+    );
+  }
+
   return (
-    <motion.section
-      className="px-6 py-20 bg-black min-h-[100vh]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h2 className="text-4xl font-playfair text-center text-gold mb-2">
-        📸 Galerie des Montres Disponibles
+    <section className="px-6 py-20 bg-black min-h-screen text-gold">
+      {/* TITRE */}
+      <h1 className="text-4xl font-playfair text-center mb-6">
+        📸 Galerie des Montres
+      </h1>
+
+      {/* TEXTE INTRO */}
+      <div className="max-w-3xl mx-auto text-center text-gold/80 mb-12 leading-relaxed">
+        <p>
+          Découvrez nos pièces d’exception actuellement disponibles au{" "}
+          <b>LXV Vault</b>.
+        </p>
+        <p className="mt-4">
+          Nous pouvons réaliser <b>n’importe quel style de montre</b> dans la
+          limite des matériaux disponibles.
+        </p>
+        <p className="mt-4">
+          Toutes nos pièces sont montées avec les{" "}
+          <b>mêmes matériaux et les mêmes spécifications</b> que les modèles
+          d’origine, sans aucune différence visuelle ou à l’utilisation.
+        </p>
+
+        <p className="mt-4 text-red-400">
+          ⛔️ Si un modèle ne figure pas dans la galerie (présente seulement
+          quelques exemples), n’hésitez pas à nous demander.
+        </p>
+
+        <p className="mt-4">
+          Nous pouvons créer pour vous n’importe quelle montre, bijoux ou sac
+          des maisons : <br />
+          <b>
+            Rolex, Patek Philippe, Richard Mille, Cartier, Audemars Piguet,
+            Fred, Hermès, Tudor, Omega, Vacheron Constantin…
+          </b>
+        </p>
+      </div>
+
+      {/* LISTE DES CATÉGORIES */}
+      <h2 className="text-2xl font-playfair text-center mb-6">
+        🔍 Catégories par Marque
       </h2>
 
-      <p className="text-center text-gold/80 mb-10">
-        Découvrez nos pièces d’exception actuellement disponibles au <b>LXV Vault</b>.
-      </p>
-
-      {/* 🔥 TEXTE AJOUTÉ — EXACTEMENT COMME DEMANDÉ */}
-      <div className="text-center text-gold/80 max-w-2xl mx-auto mb-12 space-y-3">
-        <p>
-          Nous pouvons réaliser n’importe quel style de montre dans la limite des matériaux disponibles.
-        </p>
-
-        <p>
-          Toutes nos pièces sont montées avec les mêmes matériaux et les mêmes spécifications que les modèles d’origine,  
-          sans aucune différence visuelle ou d’utilisation.
-        </p>
-
-        <p>
-          ⛔️Si un modèle ne figure pas dans la galerie (qui présente seulement quelques exemples),  
-          n’hésitez pas à nous demander.
-        </p>
-
-        <p>
-          Nous pouvons créer pour vous n’importe quel montre/bijoux/sacs Rolex,Patek Philipe,Richard Miles,Cartier,Audmars Piguet,Fred,hermess,Tudors,Omega
-        </p>
-
-        <a
-          href="https://t.me/Lxxvault"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-5 py-2 mt-3 bg-gold text-black font-semibold rounded-full 
-          hover:bg-gold/80 transition shadow-[0_0_25px_rgba(200,169,81,0.3)]"
-        >
-          📩 Contactez-nous sur Telegram
-        </a>
-      </div>
-      {/* 🔥 FIN DU TEXTE AJOUTÉ */}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {watches.map((watch, idx) => (
-          <motion.div
-            key={idx}
-            className="
-              bg-white rounded-xl overflow-hidden shadow-lg 
-              transition cursor-pointer group relative
-            "
-            whileHover={{ scale: 1.03 }}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {brands.map((brand, i) => (
+          <Link
+            key={i}
+            href={`/galerie/${encodeURIComponent(brand)}`}
+            className="px-4 py-2 bg-[#1a1a1a] border border-gold/40 rounded-full hover:bg-gold hover:text-black transition"
           >
-            {/* EFFET HOVER LUXE (Glow doré façon Rolex) */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none rounded-xl"
-                 style={{ boxShadow: "0 0 35px rgba(200,169,81,0.4)" }}></div>
+            {brand}
+          </Link>
+        ))}
+      </div>
 
-            {/* BADGE DISPONIBILITÉ */}
+      {/* GALERIE */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {watches.map((watch, index) => (
+          <div
+            key={index}
+            className="relative bg-white rounded-xl p-4 shadow-lg text-center hover:scale-[1.02] transition-transform"
+          >
+            {/* Disponibilité */}
             <span
-              className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full z-20 ${
-                watch.available ? "bg-green-500 text-white" : "bg-red-600 text-white"
+              className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full ${
+                watch.available ? "bg-green-600 text-white" : "bg-red-600 text-white"
               }`}
             >
-              {watch.available ? "Disponible j+21 " : "En Cours"}
+              {watch.available ? "Disponible" : "Indisponible"}
             </span>
 
-            {/* IMAGE NON CROP — PREMIUM */}
-            <div className="w-full h-64 bg-black flex items-center justify-center rounded-t-xl">
-              <img
+            {/* IMAGE */}
+            <div className="w-full h-64 flex items-center justify-center bg-black rounded-lg overflow-hidden">
+              <Image
                 src={watch.img}
+                width={300}
+                height={300}
                 alt={watch.name}
-                className="max-h-full max-w-full object-contain p-2 group-hover:scale-105 transition duration-500"
+                className="object-contain max-h-full"
               />
             </div>
 
-            {/* NOM + PRIX + BOUTON */}
-            <div className="p-4 text-center">
-              <h3 className="text-xl font-semibold text-gold mb-2">
-                {watch.name}
-              </h3>
+            {/* NOM */}
+            <h3 className="text-lg font-semibold text-black mt-4">
+              {watch.name}
+            </h3>
 
-              {/* PRIX */}
-              <p className="text-lg text-gold/80 mb-3 font-medium">{watch.price}</p>
+            {/* PRIX */}
+            <p className="text-black/80 font-medium mb-4">{watch.price} €</p>
 
-              {/* LIEN TELEGRAM */}
-              <a
-                href="https://t.me/Lxxvault"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 py-2 bg-gold text-black font-medium rounded-full hover:bg-gold/80 transition"
-              >
-                Contactez nous
-              </a>
-            </div>
-          </motion.div>
+            {/* CONTACT */}
+            <a
+              href="https://t.me/Lxxvault"
+              target="_blank"
+              className="inline-block bg-gold text-black font-semibold px-4 py-2 rounded-full hover:bg-gold/80 transition"
+            >
+              Nous contacter
+            </a>
+          </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

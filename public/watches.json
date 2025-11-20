@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "brand": "Rolex",
+    "name": "Submariner 116610LN",
+    "img": "/montres/1763592803484-f1d464bb.jpeg",
+    "price": 950,
+    "available": true
+  },
+  {
+    "id": 2,
+    "brand": "Richard Mille",
+    "name": "Rm 67-02",
+    "img": "/montres/1763590992891-RM02.jpeg",
+    "price": 7600,
+    "available": true
+  },
+  {
+    "id": 1763585697209,
+    "brand": "Rolex",
+    "name": "Daytonna iceblue 116520 ( Steel )",
+    "price": 1200,
+    "available": true,
+    "img": "/montres/1763605666976-Daytona_Ice_Blue_116506.jpeg"
+  },
+  {
+    "id": 1763591066324,
+    "brand": "Rolex",
+    "name": "GMT-Master II Batman 126710BLNR ",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763591066319-a4c6d35c.jpeg"
+  },
+  {
+    "id": 1763591195214,
+    "brand": "Rolex",
+    "name": "Submariner No Date 124060",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763591195201-e281fbbf.jpeg"
+  },
+  {
+    "id": 1763591312676,
+    "brand": "Rolex",
+    "name": "Rolex Submariner Date 126613lb",
+    "price": 1200,
+    "available": true,
+    "img": "/montres/1763591895876-Capture_d'écran_2025-11-19_233749.png"
+  },
+  {
+    "id": 1763592251896,
+    "brand": "Rolex",
+    "name": "Submariner Date 126610LV Starbuck",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763592705262-4f3183a2.jpeg"
+  },
+  {
+    "id": 1763592655515,
+    "brand": "Rolex",
+    "name": " Rolex Submariner Date 116610LV  Hulk",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763592869352-5bf11af9.jpeg"
+  },
+  {
+    "id": 1763592920060,
+    "brand": "Rolex",
+    "name": "GMT-Master II Pepsi 126710BLRO",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763592920049-11090a3b.jpeg"
+  },
+  {
+    "id": 1763593551599,
+    "brand": "Rolex",
+    "name": "GMT-Master II Sprite 126720VTNR ",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763593587501-Capture_d'écran_2025-11-20_000605.png"
+  },
+  {
+    "id": 1763605434994,
+    "brand": "Rolex",
+    "name": "GMT-Master II \"Rootbeer\" 126711CHNR",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763605522092-709ebb35.jpeg"
+  },
+  {
+    "id": 1763605601936,
+    "brand": "Rolex",
+    "name": "Submariner 126610LV Kermit  16610LV",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763605601927-4ccff782.jpeg"
+  },
+  {
+    "id": 1763605831285,
+    "brand": "Rolex",
+    "name": "Rolex Submariner Date 126619LB",
+    "price": 950,
+    "available": true,
+    "img": "/montres/1763605831280-Capture_d'écran_2025-11-20_032935.png"
+  },
+  {
+    "id": 1763605941350,
+    "brand": "Rolex",
+    "name": "Daytona Panda 116500LN",
+    "price": 1200,
+    "available": true,
+    "img": "/montres/1763605941342-07847e7a.jpeg"
+  },
+  {
+    "id": 1763606159239,
+    "brand": "Rolex ",
+    "name": "Daytona 116500LN ",
+    "price": 1200,
+    "available": true,
+    "img": "/montres/1763606159231-9fa82259.jpeg"
+  }
+]
