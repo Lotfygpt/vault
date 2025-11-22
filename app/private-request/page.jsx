@@ -1,113 +1,59 @@
-use client;
+"use client";
 
-import { useState } from react;
+import { useState } from "react";
 
 export default function PrivateRequest() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState();
-  const [error, setError] = useState();
+  const [message, setMessage] = useState("");
+  const [contact, setContact] = useState("");
+  const [sent, setSent] = useState(false);
 
-  const sendRequest = async (e) = {
-    e.preventDefault();
-    setLoading(true);
-    setError();
-    setSuccess();
+  const handleSend = async () => {
+    if (!message.trim()) return alert("Merci de décrire votre demande.");
+    if (!contact.trim()) return alert("Merci de fournir un moyen de contact.");
 
-    const form = new FormData(e.target);
+    setSent(true);
 
-    const res = await fetch(apiprivate-request, {
-      method POST,
-      body form,
-    });
+    console.log("Nouvelle demande privée :", { message, contact });
 
-    const data = await res.json();
-
-    if (res.ok) {
-      setSuccess(Votre demande a bien été envoyée. Nous vous répondrons sous 24h.);
-      e.target.reset();
-    } else {
-      setError(data.error  Erreur lors de l’envoi. Réessayez.);
-    }
-
-    setLoading(false);
+    alert("Votre demande a été envoyée. Nous vous recontactons très vite.");
   };
 
   return (
-    div className=min-h-screen bg-black text-gold px-6 py-16
-      h1 className=text-4xl font-playfair text-center mb-12
-        Demande Privée – LXV Vault
-      h1
+    <div className="min-h-screen bg-black text-gold p-10 flex flex-col items-center">
+      <h1 className="text-4xl font-playfair mb-6">Demande Privée LXV Vault</h1>
 
-      form
-        onSubmit={sendRequest}
-        className=max-w-xl mx-auto bg-[#111] p-8 rounded-xl border border-gold20 space-y-6
-      
-        {success && p className=text-green-400 text-center{success}p}
-        {error && p className=text-red-400 text-center{error}p}
+      <p className="text-center max-w-2xl text-gold/80 mb-10 leading-relaxed">
+        Décrivez votre demande personnalisée : Superfranken, Ultra Clone, bijoux,
+        maroquinerie ou pièce totalement unique fabriquée par l’atelier.
+        <br />
+        Vous recevrez ensuite un retour directement par notre équipe.
+      </p>
 
-        div
-          label className=block mb-1Nom completlabel
-          input
-            name=name
-            required
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
+      <div className="bg-[#111] p-8 rounded-xl border border-gold/20 w-full max-w-2xl shadow-xl">
+        <label className="text-sm text-gold/80">Votre demande :</label>
+        <textarea
+          className="w-full mt-2 mb-6 p-4 bg-black text-white rounded-lg border border-gold/20 min-h-[150px]"
+          placeholder="Expliquez votre demande en détail..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
 
-        div
-          label className=block mb-1Contact (Telegram, WhatsApp, email…)label
-          input
-            name=contact
-            required
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
+        <label className="text-sm text-gold/80">Votre contact (Telegram, email, etc.) :</label>
+        <input
+          className="w-full mt-2 mb-6 p-4 bg-black text-white rounded-lg border border-gold/20"
+          placeholder="@votreTelegram ou email"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+        />
 
-        div
-          label className=block mb-1Modèle recherchélabel
-          input
-            name=model
-            placeholder=Ex  Rolex Daytona Ice Blue 116506
-            required
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
-
-        div
-          label className=block mb-1Budgetlabel
-          input
-            name=budget
-            type=number
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
-
-        div
-          label className=block mb-1Détails  demandes spécialeslabel
-          textarea
-            name=details
-            rows=4
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
-
-        div
-          label className=block mb-1Photo du modèle (optionnel)label
-          input
-            type=file
-            name=image
-            accept=image
-            className=w-full p-3 bg-black text-white rounded border border-gold20
-          
-        div
-
-        button
-          disabled={loading}
-          className=w-full py-3 bg-gold text-black rounded font-semibold hoverbg-gold80 transition
-        
-          {loading  Envoi...  Envoyer la demande}
-        button
-      form
-    div
+        <button
+          onClick={handleSend}
+          disabled={sent}
+          className="w-full py-3 bg-gold text-black font-semibold rounded-lg hover:bg-gold/80 transition"
+        >
+          {sent ? "Demande envoyée ✔" : "Envoyer ma demande"}
+        </button>
+      </div>
+    </div>
   );
 }
