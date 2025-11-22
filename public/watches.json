@@ -118,5 +118,37 @@
     "price": 1200,
     "available": true,
     "img": "/montres/1763606159231-9fa82259.jpeg"
+  },
+  {
+    "id": 1763819396179,
+    "brand": "Audemars Piguet",
+    "name": "16202OR.OO.1240OR.01",
+    "price": 1400,
+    "available": true,
+    "img": "/montres/1763819396171-0543a74e.jpeg"
+  },
+  {
+    "id": 1763819710119,
+    "brand": "Audemars Piguet",
+    "name": "26320OR.OO.1220OR.01",
+    "price": 1450,
+    "available": true,
+    "img": "/montres/1763819710117-e8209b8b.jpeg"
+  },
+  {
+    "id": 1763819768592,
+    "brand": "Audemars Piguet",
+    "name": "26320ST.OO.1220ST.03",
+    "price": 1300,
+    "available": true,
+    "img": "/montres/1763819768584-6f507716.jpeg"
+  },
+  {
+    "id": 1763819807946,
+    "brand": "Richard Miles",
+    "name": "RM055",
+    "price": 6200,
+    "available": true,
+    "img": "/montres/1763819807941-fc63a734.jpeg"
   }
 ]
